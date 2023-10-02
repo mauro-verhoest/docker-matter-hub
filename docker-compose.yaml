@@ -1,0 +1,35 @@
+version: "3.9"
+
+
+services:
+
+    
+  openthread_border_router:
+     image: matter-hub-pi
+     container_name: matter-hub
+     volumes:
+       - /dev/ttyACM0:/dev/radio
+     sysctls:
+       net.ipv6.conf.all.disable_ipv6: 0
+       net.ipv4.conf.all.forwarding: 1
+       net.ipv6.conf.all.forwarding: 1
+     ports:
+       - 8080:80
+     dns:
+       - 127.0.0.1
+     privileged: true
+     #stdin_open: true
+     tty: true
+     command: ["--radio-url", "spinel+hdlc+uart:///dev/radio?uart-baudrate=1000000"]
+     networks:
+      ipv6net:
+        ipv6_address: 2001:3984:3989::20
+networks:
+  ipv6net:
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 2001:3984:3989::/64
+          gateway: 2001:3984:3989::1
