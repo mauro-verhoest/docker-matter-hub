@@ -21,15 +21,4 @@ services:
      #stdin_open: true
      tty: true
      command: ["--radio-url", "spinel+hdlc+uart:///dev/radio?uart-baudrate=1000000"]
-     networks:
-      ipv6net:
-        ipv6_address: 2001:3984:3989::20
-networks:
-  ipv6net:
-    driver: bridge
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: 2001:3984:3989::/64
-          gateway: 2001:3984:3989::1
+     network_mode: host 
