@@ -1,3 +1,6 @@
 #!/bin/sh
 #https://www.baeldung.com/linux/shebang
-docker build -t matter-hub-pi --platform=linux/arm/v8 .
+set -x
+cd ~/
+#https://docs.docker.com/engine/reference/commandline/build/
+docker build --platform=linux/arm/v8  -f docker-matter-hub/Dockerfile -t matter-hub . 

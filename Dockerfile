@@ -27,7 +27,8 @@ RUN unzip chip-tool-linux_aarch64.zip
 #RUN  killall -9 bluetoothd
 
 #copy chip-tool and entrypoint.sh
-#ENV DIRPATH=/home
+#ENV DIRPATH=/home/bridge/
+WORKDIR /
 COPY connectedhomeip/examples/chip-tool/out/debug/chip-tool-debug /usr/bin/
 COPY connectedhomeip/examples/chip-tool/entrypoint.sh /
 
