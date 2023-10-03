@@ -4,9 +4,9 @@ version: "3.9"
 services:
 
     
-  openthread_border_router:
-     image: matter-hub-pi
-     container_name: matter-hub
+  matter-hub:
+     image: matter-hub
+     container_name: matter-hub-pi
      volumes:
        - /dev/ttyACM0:/dev/radio
      sysctls:
