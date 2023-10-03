@@ -26,8 +26,8 @@ RUN unzip chip-tool-linux_aarch64.zip
 #disable bluetooth 
 #RUN  killall -9 bluetoothd
 
-COPY out/debug/chip-tool-debug /usr/bin/
-COPY entrypoint.sh /
+COPY ~/connectedhomeip/examples/chip-tool/out/debug/chip-tool-debug /usr/bin/
+COPY ~/connectedhomeip/examples/chip-tool/entrypoint.sh /
 
 ENTRYPOINT ["/entrypoint.sh", "tool"]
 #entrypoint [ "/bin/bash", "-l", "-c" ]
