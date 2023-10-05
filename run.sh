@@ -3,6 +3,7 @@
 set -x
 #sudo service otbr-agent stop
 #https://www.baeldung.com/linux/start-script-after-another-finishes
-./start.sh &
-wait && ./build.sh
-exit 0
+
+./build.sh
+./start.sh
+exit 

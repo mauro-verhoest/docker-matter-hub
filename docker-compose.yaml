@@ -14,11 +14,24 @@ services:
        net.ipv4.conf.all.forwarding: 1
        net.ipv6.conf.all.forwarding: 1
      ports:
-       - 8080:80
+      - 8080:80
      dns:
        - 127.0.0.1
      privileged: true
      #stdin_open: true
      tty: true
      command: ["--radio-url", "spinel+hdlc+uart:///dev/radio?uart-baudrate=1000000"]
-     network_mode: host 
+     networks:
+      ipv6net:
+     extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+
+
+networks:
+  ipv6net:
+    name: otbr
+    external: true
+  host:
+    name: host
+    external: true
