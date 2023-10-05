@@ -18,7 +18,7 @@ services:
      dns:
        - 127.0.0.1
      privileged: true
-     #stdin_open: true
+     stdin_open: true
      tty: true
      command: ["--radio-url", "spinel+hdlc+uart:///dev/radio?uart-baudrate=1000000"]
      networks:
